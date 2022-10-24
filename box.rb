@@ -15,10 +15,11 @@ require current_path + '/lib/wish_writer.rb'
 
 file_name = current_path + '/data/wishes.xml'
 
-wish_list = WishWriter.new.read_from_xml(file_name)
 
+wish_list = WishWriter.new.read_from_xml(file_name)
 wish = WishWriter.new.create
 wish.read_from_console
+
 info = wish.info
 
 wish_list_upd = WishWriter.new.add_wish(wish_list, info)
