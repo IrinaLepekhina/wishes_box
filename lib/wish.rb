@@ -32,7 +32,7 @@ class Wish
 
   def info
     deadline = "Крайний срок: #{@due_date.strftime('%d.%m.%Y')}"
-    time_string = "Создано: #{@created_at.strftime('%d.%m.%Y, %H:%M:%S')}\n\r"
+    time_string = "Создано: #{@created_at.strftime('%d.%m.%Y, %H:%M:%S')}"
     description = "#{@descr}"
 
     info = [deadline, description, time_string]

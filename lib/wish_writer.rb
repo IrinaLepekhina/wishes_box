@@ -42,7 +42,7 @@ class WishWriter
 
   def save(wish_list_upd, file_name)
     file = File.new(file_name, "w:UTF-8")
-    wish_list_upd.write(file, 4)
+    wish_list_upd.write(file, 2)
     file.close
   end
 end
