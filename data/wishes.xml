@@ -1,0 +1,68 @@
+<wishes>
+    <wish>
+        <description>
+             "sea" 
+        </description>
+        <time_string>
+             "01.01.2022" 
+        </time_string>
+        <deadline>
+             "20.12.2022" 
+        </deadline>
+    </wish>
+    <wish>
+        <time_string>
+             Создано: 24.10.2022, 10:54:55 
+        </time_string>
+        <description>
+             fff 
+        </description>
+        <deadline>
+             Крайний срок: 24.10.2022 
+        </deadline>
+    </wish>
+    <wish>
+        <time_string>
+             Создано: 24.10.2022, 10:58:12 
+        </time_string>
+        <description>
+             fff 
+        </description>
+        <deadline>
+             Крайний срок: 24.10.2022 
+        </deadline>
+    </wish>
+    <wish>
+        <time_string>
+             Создано: 24.10.2022, 10:59:20 
+        </time_string>
+        <description>
+             ttt 
+        </description>
+        <deadline>
+             Крайний срок: 24.10.2022 
+        </deadline>
+    </wish>
+    <wish>
+        <time_string>
+             Создано: 24.10.2022, 11:09:40 
+        </time_string>
+        <description>
+             sss 
+        </description>
+        <deadline>
+             Крайний срок: 24.10.2022 
+        </deadline>
+    </wish>
+    <wish>
+        <time_string>
+            Создано: 24.10.2022, 11:10:43 
+        </time_string>
+        <description>
+            ttt
+        </description>
+        <deadline>
+            Крайний срок: 24.10.2022
+        </deadline>
+    </wish>
+</wishes>
