@@ -1,7 +1,41 @@
 class WishWriter
 
-  def create
-    Wish.new
+  def read_from_console(wish_list)
+    created_at = Time.now
+
+    puts "В этом сундуке хранятся ваши желания.
+    Чего бы вы хотели?"
+    descr = STDIN.gets.chomp
+    
+    puts "До какого числа вы хотите осуществить это желание?
+    (укажите дату в формате ДД.ММ.ГГГГ)"
+    input = STDIN.gets.chomp
+
+    if input == ""
+      due_date = Date.today
+    else
+      due_date = Date.parse(input)
+    end
+
+    init = [descr, created_at, due_date]
+    Wish.new(init)
+    self.add_wish(wish_list, init)
+  end
+
+  def add_wish(wish_list, init)
+    wish = wish_list.root.add_element("wish")
+
+    wish.add_element("description").text = init[0]
+    wish.add_element("time_string").text = init[1]
+    wish.add_element("deadline").text = init[2]
+
+    wish_list
+  end
+
+  def save(wish_list_upd, file_name)
+    file = File.new(file_name, "w:UTF-8")
+    wish_list_upd.write(file, 2)
+    file.close
   end
 
   def read_from_xml(file_name)
@@ -30,19 +64,14 @@ class WishWriter
     end
   end
 
-  def add_wish(wish_list, info)
-    wish = wish_list.root.add_element("wish")
+  def init_table(node)
+    descr = node.elements["description"].text
+    created_at = Date.today
+    due_date = Date.parse(node.elements["deadline"].text)
 
-    wish.add_element("deadline").text = info[0]
-    wish.add_element("description").text = info[1]
-    wish.add_element("time_string").text = info[2]
+    init = [descr, created_at, due_date]
+    Wish.new(init)
+end
 
-    wish_list
-  end
 
-  def save(wish_list_upd, file_name)
-    file = File.new(file_name, "w:UTF-8")
-    wish_list_upd.write(file, 2)
-    file.close
-  end
 end
