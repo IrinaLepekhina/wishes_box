@@ -1,38 +1,39 @@
+# frozen_string_literal: true
+
 if Gem.win_platform?
   Encoding.default_external = Encoding.find(Encoding.locale_charmap)
   Encoding.default_internal = __ENCODING__
 
-  [STDIN, STDOUT].each do |io|
+  [$stdin, $stdout].each do |io|
     io.set_encoding(Encoding.default_external, Encoding.default_internal)
   end
 end
 
 current_path = File.dirname(__FILE__)
-require "rexml/document"
-require "date"
-require current_path + '/lib/wish.rb'
-require current_path + '/lib/wish_writer.rb'
+require 'rexml/document'
+require 'date'
+require "#{current_path}/lib/wish.rb"
+require "#{current_path}/lib/wish_writer.rb"
 
-file_name = current_path + '/data/wishes.xml'
+file_name = "#{current_path}/data/wishes.xml"
 
-  # Запись нового желания #
+# Запись нового желания #
 writer = WishWriter.new
 wish_list = writer.read_from_xml(file_name)
 wish = writer.read_from_console(wish_list)
 
-
 writer.save(wish_list, file_name)
 
-puts "Запись сохранена"
+puts 'Запись сохранена'
 
-  # Вывод прошедших и будущих по срокам #
+# Вывод прошедших и будущих по срокам #
 wishes = []
 
-wish_list.each_element("wishes/wish") do |wish_node|
+wish_list.each_element('wishes/wish') do |wish_node|
   wishes << WishWriter.new.init_table(wish_node)
 end
 
-puts "-----------"
+puts '-----------'
 puts 'Эти желания должны были сбыться к сегодняшнему дню'
 wishes.each { |wish| puts wish.info.to_s if wish.overdue? }
 
