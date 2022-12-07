@@ -26,8 +26,8 @@ class WishWriter
     wish = wish_list.root.add_element("wish")
 
     wish.add_element("description").add_text(init[0])
-    wish.add_element("time_string").add_text(init[1])
-    wish.add_element("deadline").add_text(init[2])
+    wish.add_element("time_string").add_text(init[1].strftime('%d-%m-%Y'))
+    wish.add_element("deadline").add_text(init[2].strftime("%a, %d %b %Y"))
 
     wish_list
   end

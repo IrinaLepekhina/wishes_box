@@ -16,10 +16,12 @@ require current_path + '/lib/wish_writer.rb'
 file_name = current_path + '/data/wishes.xml'
 
   # Запись нового желания #
-wish_list = WishWriter.new.read_from_xml(file_name)
-wish = WishWriter.new.read_from_console(wish_list)
+writer = WishWriter.new
+wish_list = writer.read_from_xml(file_name)
+wish = writer.read_from_console(wish_list)
 
-WishWriter.new.save(wish_list, file_name)
+
+writer.save(wish_list, file_name)
 
 puts "Запись сохранена"
 
